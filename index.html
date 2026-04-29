@@ -13,12 +13,27 @@
       position: relative;
       overflow: hidden;
     }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+    .neon-purple-bg::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(circle at 25% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 75% 80%, rgba(192, 132, 252, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .neon-text { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+    .neon-text { 
+      text-shadow: 
+        0 0 10px rgba(168, 85, 247, 0.8),
+        0 0 20px rgba(168, 85, 247, 0.5),
+        0 0 40px rgba(147, 51, 234, 0.3);
+    }
     .gradient-text {
       background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
       -webkit-background-clip: text;
@@ -55,12 +70,12 @@
     <div class="grid md:grid-cols-2 gap-8">
       <div class="glass rounded-3xl p-10 border border-purple-500/20">
         <p class="text-xl leading-relaxed">Native Hindi speaker from Delhi with <strong>7+ years</strong> of Hindi writing experience, <strong>5+ years</strong> of professional Hindi audio recording & script reading, and <strong>3+ years</strong> as an AI Trainer & Audio Evaluator.</p>
-        <p class="mt-6 text-xl leading-relaxed">I specialize in <strong>non-coding AI training projects</strong> — prompt engineering, AI response evaluation, audio annotation, and content quality review for <strong>Hindi & English</strong>. I also have experience in Hindi ↔ English translation.</p>
+        <p class="mt-6 text-xl leading-relaxed">I specialize in <strong>non-coding AI training projects</strong> — prompt engineering, AI response evaluation, audio annotation, and content quality review for <strong>Hindi & English</strong>. I also create AI videos and high-quality AI images using Grok AI, Flow AI, Kling AI, and other platforms.</p>
       </div>
       <div class="space-y-6">
         <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
           <i class="fas fa-microphone text-purple-400 text-4xl mt-1"></i>
-          <div><h4 class="font-semibold text-xl">5+ Years Hindi Audio Recording</h4><p class="text-slate-400">Professional voice production for AI training</p></div>
+          <div><h4 class="font-semibold text-xl">5+ Years Hindi Audio Recording</h4><p class="text-slate-400">Professional voice production with my own mic setup</p></div>
         </div>
         <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
           <i class="fas fa-pen-nib text-purple-400 text-4xl mt-1"></i>
@@ -87,7 +102,10 @@
         <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Accent Variation Identification</div>
         <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">AI Training Data Curation</div>
         <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Hindi ↔ English Translation</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Non-Coding AI Projects (Hindi + English)</div>
+        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Non-Coding AI Projects</div>
+        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Bengali Audio Recording</div>
+        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">MS Excel & MS Word</div>
+        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">AI Video & Image Creation</div>
       </div>
     </div>
   </section>
@@ -103,14 +121,16 @@
       <p class="text-purple-300 mb-8">Remote • 2023 – Present</p>
       <div class="grid md:grid-cols-2 gap-8 text-lg">
         <div class="space-y-4">
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 5+ years professional Hindi audio recording & script reading for AI projects</div>
+          <div class="flex gap-4"><span class="text-purple-400">•</span> 5+ years professional Hindi audio recording & script reading</div>
           <div class="flex gap-4"><span class="text-purple-400">•</span> 7+ years Hindi writing & content creation experience</div>
           <div class="flex gap-4"><span class="text-purple-400">•</span> 3+ years AI Trainer — prompt writing & AI response evaluation</div>
+          <div class="flex gap-4"><span class="text-purple-400">•</span> Bengali audio recording experience with professional mic setup</div>
         </div>
         <div class="space-y-4">
           <div class="flex gap-4"><span class="text-purple-400">•</span> Evaluated 100+ multilingual audio clips for naturalness & accuracy</div>
           <div class="flex gap-4"><span class="text-purple-400">•</span> Specialized in non-coding AI training projects (Hindi & English)</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> Hindi ↔ English translation & content quality review</div>
+          <div class="flex gap-4"><span class="text-purple-400">•</span> AI Video Creation (Grok AI, Flow AI, Kling AI) & High Quality AI Images</div>
+          <div class="flex gap-4"><span class="text-purple-400">•</span> MS Excel & MS Word proficient for project documentation</div>
         </div>
       </div>
     </div>
