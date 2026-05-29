@@ -1,210 +1,203 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lokesh Agarwal | Freelancer AI Trainer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    
-    .neon-purple-bg {
-      background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0f0a1f 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .neon-purple-bg::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: 
-        radial-gradient(circle at 25% 20%, rgba(168, 85, 247, 0.35) 0%, transparent 60%),
-        radial-gradient(circle at 75% 80%, rgba(192, 132, 252, 0.3) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    
-    .glass {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-    }
-    
-    .neon-text { 
-      text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.5);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokesh Agarwal | Freelance AI Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .neon-purple { text-shadow: 0 0 20px #c026d3, 0 0 40px #c026d3; }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); }
+    </style>
 </head>
-<body class="bg-[#0a0a0f] text-white">
+<body class="bg-[#0a001f] text-white overflow-x-hidden">
+    <!-- 3D Hero Background -->
+    <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
 
-  <!-- Sticky LinkedIn -->
-  <div class="sticky-nav bg-[#0a0a0f]/95 backdrop-blur-lg border-b border-purple-900/50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-end">
-      <a href="https://www.linkedin.com/in/lokesh-agarwal-ba7475248" target="_blank" 
-         class="inline-flex items-center gap-3 px-6 py-2.5 glass border border-purple-400/50 rounded-full hover:bg-purple-500/10 transition-all">
-        <i class="fab fa-linkedin text-purple-400 text-xl"></i>
-        <span class="font-medium">Connect on LinkedIn</span>
-      </a>
-    </div>
-  </div>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-purple-500/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold neon-purple">Lokesh Agarwal</h1>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-purple-400 transition">About</a>
+                <a href="#skills" class="hover:text-purple-400 transition">Skills</a>
+                <a href="#experience" class="hover:text-purple-400 transition">Experience</a>
+                <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero -->
-  <section class="neon-purple-bg min-h-screen flex items-center justify-center text-center px-6">
-    <div class="max-w-4xl relative z-10">
-      <div class="mb-8">
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass border border-purple-500/30 mb-6">
-          <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-          <span class="text-sm font-medium text-purple-300">Open to Freelance & Part-time Projects</span>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center pt-20">
+            <h2 class="text-7xl md:text-8xl font-bold tracking-tighter neon-purple mb-4">LOKESH AGARWAL</h2>
+            <p class="text-3xl md:text-4xl text-purple-300 mb-8">Freelance AI Trainer • Hindi/English Voice Artist</p>
+            <p class="max-w-lg mx-auto text-lg text-purple-200/90 mb-12">Delhi se, non-coding AI specialist. Prompt engineering, AI response evaluation, Hindi-English audio annotation aur high-quality AI video/image creation.</p>
+            <a href="#contact" 
+               class="inline-block px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-semibold text-xl hover:scale-105 transition transform shadow-2xl shadow-purple-500/50">
+               Let's Collab →
+            </a>
         </div>
-      </div>
-      
-      <h1 class="text-7xl md:text-8xl font-bold mb-6 tracking-tighter neon-text">Lokesh Agarwal</h1>
-      <h2 class="text-5xl md:text-6xl gradient-text font-semibold mb-8">Freelancer AI Trainer</h2>
-      <p class="text-xl text-purple-300 mb-2">Delhi, India (Remote)</p>
-      <p class="text-2xl text-purple-200 mb-12">Voice Recording Expert • Prompt Engineer • AI Response Evaluator</p>
-      
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#contact" class="px-10 py-5 bg-white text-black font-semibold text-xl rounded-3xl hover:bg-purple-100 transition-all flex items-center gap-3">
-          Let's Work Together <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#about" class="px-10 py-5 border-2 border-purple-400 hover:bg-purple-500/10 rounded-3xl flex items-center gap-3 transition-all text-lg">
-          About Me
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <div class="inline-block px-4 py-1.5 rounded-full glass border border-purple-500/30 text-purple-300 text-sm font-medium mb-6">MY JOURNEY</div>
-      <h2 class="text-5xl font-bold">Freelance AI Trainer & Content Specialist</h2>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="glass rounded-3xl p-10 border border-purple-500/20">
-        <p class="text-xl leading-relaxed">Native Hindi speaker from Delhi with 7+ years of Hindi writing experience, 4+ years of English writing experience, 5+ years of professional Hindi & English audio recording & script reading (freelance), and 3+ years as an AI Trainer & Audio Evaluator.</p>
-        <p class="mt-6 text-xl leading-relaxed">I specialize in non-coding AI training projects - prompt engineering, AI response evaluation, audio annotation, and content quality review for Hindi & English. I also create AI videos and high-quality AI images using Grok AI, Flow AI, Kling AI, and other platforms.</p>
-      </div>
-      
-      <div class="space-y-6">
-        <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
-          <i class="fas fa-microphone text-purple-400 text-4xl mt-1"></i>
-          <div><h4 class="font-semibold text-xl">5+ Years Hindi & English Audio Recording</h4><p class="text-slate-400">Professional freelance voice production</p></div>
+    <!-- About -->
+    <section id="about" class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">About Me</h2>
+            <div class="glass rounded-3xl p-10 border border-purple-500/30">
+                <p class="text-lg leading-relaxed text-purple-100">
+                    Native Hindi speaker from Delhi with 7+ years of Hindi writing, 4+ years of English writing, 
+                    5+ years of professional Hindi & English audio recording & script reading. 
+                    3+ years as AI Trainer & Audio Evaluator. I specialize in non-coding AI training projects — 
+                    prompt engineering, AI response evaluation, audio annotation, and content quality review for Hindi & English. 
+                    I also create stunning AI videos and high-quality AI images using Grok AI, Flow AI, Kling AI and more.
+                </p>
+            </div>
         </div>
-        <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
-          <i class="fas fa-pen-nib text-purple-400 text-4xl mt-1"></i>
-          <div><h4 class="font-semibold text-xl">7+ Years Hindi Writing</h4><p class="text-slate-400">Content creation & linguistic expertise</p></div>
-        </div>
-        <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
-          <i class="fas fa-pen text-purple-400 text-4xl mt-1"></i>
-          <div><h4 class="font-semibold text-xl">4+ Years English Writing</h4><p class="text-slate-400">Professional English content creation</p></div>
-        </div>
-        <div class="glass rounded-3xl p-8 border border-purple-500/20 flex gap-6">
-          <i class="fas fa-brain text-purple-400 text-4xl mt-1"></i>
-          <div><h4 class="font-semibold text-xl">3+ Years AI Trainer</h4><p class="text-slate-400">Prompt writing, response evaluation & audio annotation</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills -->
-  <section class="py-24 px-6 bg-[#0a0a0f]">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-5xl font-bold text-center mb-16">Core Skills</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Voice Recording & Script Reading (Hindi, English, Bengali)</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Prompt Engineering & Writing</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">AI Response Evaluation</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Audio Annotation & Transcription</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Accent Variation Identification</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">AI Training Data Curation</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Hindi English Translation</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Non-Coding AI Projects</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">Bengali Audio Recording (2+ Years)</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">MS Excel & MS Word</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">AI Video & Image Creation</div>
-        <div class="glass border border-purple-500/30 px-8 py-5 rounded-3xl text-center font-medium">QA Tasks (Hindi & English)</div>
-      </div>
-    </div>
-  </section>
+    <!-- Skills -->
+    <section id="skills" class="py-24 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Core Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">Voice Recording & Script Reading (Hindi, English, Bengali)</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">Prompt Engineering & Writing</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">AI Response Evaluation</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">Audio Annotation & Transcription</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">Accent Variation Identification</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">AI Training Data Curation</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">Hindi-English Translation</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">AI Video & Image Creation (Grok, Kling, Flow)</div>
+                <div class="glass p-6 rounded-2xl border border-purple-400/30 hover:border-purple-400 transition">MS Excel & MS Word</div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Experience -->
-  <section class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <div class="text-purple-400 text-sm tracking-[3px] font-medium mb-4">EXPERIENCE</div>
-      <h2 class="text-5xl font-bold">Professional Journey</h2>
-    </div>
-    <div class="glass border border-purple-500/20 rounded-3xl p-12">
-      <h3 class="text-3xl font-semibold mb-2">Freelance AI Trainer & Content Specialist</h3>
-      <p class="text-purple-300 mb-8">Remote  2023 - Present</p>
-      <div class="grid md:grid-cols-2 gap-8 text-lg">
-        <div class="space-y-4">
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 5+ years professional Hindi & English audio recording & script reading (freelance)</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 7+ years Hindi writing & content creation experience</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 4+ years English writing experience</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 3+ years AI Trainer - prompt writing & AI response evaluation</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> 2+ years Bengali audio recording experience with professional mic setup</div>
+    <!-- Experience -->
+    <section id="experience" class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Journey</h2>
+            <div class="glass rounded-3xl p-10 border border-purple-500/30">
+                <div class="flex justify-between mb-6">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Freelance AI Trainer & Content Specialist</h3>
+                        <p class="text-purple-300">Remote • 2023 - Present</p>
+                    </div>
+                </div>
+                <ul class="list-disc pl-6 space-y-3 text-purple-100">
+                    <li>5+ years professional Hindi & English audio recording & script reading</li>
+                    <li>7+ years Hindi writing & content creation</li>
+                    <li>3+ years as AI Trainer — prompt engineering & response evaluation</li>
+                    <li>2+ years Bengali audio recording with professional mic setup</li>
+                    <li>Evaluated 100+ multilingual audio clips for naturalness & accuracy</li>
+                    <li>Specialist in non-coding AI training projects (Hindi & English)</li>
+                    <li>Expert AI Video & Image Creation using Grok AI, Flow AI, Kling AI</li>
+                </ul>
+            </div>
         </div>
-        <div class="space-y-4">
-          <div class="flex gap-4"><span class="text-purple-400">•</span> Evaluated 100+ multilingual audio clips for naturalness & accuracy</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> Specialized in non-coding AI training projects (Hindi & English)</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> AI Video Creation (Grok AI, Flow AI, Kling AI) & High Quality AI Images</div>
-          <div class="flex gap-4"><span class="text-purple-400">•</span> MS Excel & MS Word proficient for project documentation</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-24 px-6 border-t border-purple-900/50 bg-[#0a0a0f]">
-    <div class="max-w-2xl mx-auto text-center">
-      <div class="text-purple-400 text-sm tracking-[3px] font-medium mb-4">LET'S WORK TOGETHER</div>
-      <h2 class="text-5xl font-bold mb-6">Open to Freelance & Part-time Projects</h2>
-      <p class="text-xl text-purple-200 mb-12">Looking for Hindi/English audio recording, AI training, prompt writing, or content evaluation work? I'd love to collaborate on non-coding AI projects!</p>
-      
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="glass border border-purple-500/20 rounded-3xl p-10 text-left">
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-sm text-purple-300 mb-2">Your Name</label>
-            <input type="text" name="name" required class="w-full px-5 py-4 bg-white/5 border border-purple-500/30 rounded-2xl focus:outline-none focus:border-purple-400 text-white">
-          </div>
-          <div>
-            <label class="block text-sm text-purple-300 mb-2">Company / Project</label>
-            <input type="text" name="company" class="w-full px-5 py-4 bg-white/5 border border-purple-500/30 rounded-2xl focus:outline-none focus:border-purple-400 text-white">
-          </div>
+    <!-- Contact -->
+    <section id="contact" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold neon-purple mb-8">Let's Work Together</h2>
+            <p class="text-xl text-purple-200 mb-12">Delhi, India (Remote)<br>Open for freelance & part-time projects in Hindi/English audio, AI training, prompt writing & content evaluation.</p>
+            <a href="https://www.linkedin.com/in/lokesh-agarwal-ba7475248" target="_blank"
+               class="inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-500 px-8 py-5 rounded-2xl text-xl font-semibold transition">
+                Connect on LinkedIn →
+            </a>
+            <p class="mt-8 text-purple-400">Reply within 24-48 hours</p>
         </div>
-        <div class="mt-6">
-          <label class="block text-sm text-purple-300 mb-2">Message / Project Details</label>
-          <textarea name="message" rows="5" required class="w-full px-5 py-4 bg-white/5 border border-purple-500/30 rounded-2xl focus:outline-none focus:border-purple-400 text-white resize-y"></textarea>
-        </div>
-        <button type="submit" class="mt-8 w-full py-5 bg-white text-black font-semibold text-xl rounded-3xl hover:bg-purple-100 transition-all flex items-center justify-center gap-3">
-          <span>Send Message</span> <i class="fas fa-paper-plane"></i>
-        </button>
-        <p class="text-center text-xs text-purple-400 mt-6">I will try to reply within 24-48 hours.</p>
-      </form>
-      
-      <div class="mt-12">
-        <a href="https://www.linkedin.com/in/lokesh-agarwal-ba7475248" target="_blank" class="inline-flex items-center gap-4 px-10 py-5 border-2 border-purple-400 hover:bg-purple-500/10 rounded-3xl transition-all text-lg">
-          <i class="fab fa-linkedin text-2xl"></i>
-          <span>Connect on LinkedIn</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">
+        © 2026 Lokesh Agarwal • Made with neon purple love by Grok
+    </footer>
+
+    <script>
+        // Three.js 3D Neon Purple Background
+        let scene, camera, renderer;
+        let particles;
+
+        function initThree() {
+            const canvas = document.getElementById('three-canvas');
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Neon Purple Particles
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const colors = [];
+            const color = new THREE.Color();
+
+            for (let i = 0; i < 5000; i++) {
+                vertices.push(
+                    (Math.random() - 0.5) * 2000,
+                    (Math.random() - 0.5) * 2000,
+                    (Math.random() - 0.5) * 2000
+                );
+                color.setHSL(0.75, 1, 0.8); // Neon purple
+                colors.push(color.r, color.g, color.b);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 3,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Floating Torus (neon glow)
+            const torusGeo = new THREE.TorusKnotGeometry(15, 4, 128, 32);
+            const torusMat = new THREE.MeshBasicMaterial({
+                color: 0xc026d3,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            const torus = new THREE.Mesh(torusGeo, torusMat);
+            torus.position.set(-80, 60, -150);
+            scene.add(torus);
+
+            camera.position.z = 600;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particles.rotation.y += 0.0005;
+                torus.rotation.x += 0.005;
+                torus.rotation.y += 0.008;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        window.addEventListener('resize', () => {
+            if (renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        // Initialize everything
+        window.onload = () => {
+            initThree();
+            // Tailwind script already loaded
+        };
+    </script>
 </body>
 </html>
