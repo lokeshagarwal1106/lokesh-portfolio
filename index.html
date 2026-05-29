@@ -43,7 +43,7 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About, Skills, Experience, Contact sections same as before -->
     <section id="about" class="py-24 relative z-10 bg-black/40">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-5xl font-bold neon-purple mb-12 text-center">About Me</h2>
@@ -59,7 +59,6 @@
         </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" class="py-24 relative z-10">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Core Skills</h2>
@@ -77,7 +76,6 @@
         </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience" class="py-24 relative z-10 bg-black/40">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Journey</h2>
@@ -101,7 +99,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="py-24 relative z-10">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-bold neon-purple mb-8">Let's Work Together</h2>
@@ -118,75 +115,137 @@
         © 2026 Lokesh Agarwal • Made with neon purple love by Grok
     </footer>
 
+    <!-- UPDATED 3D SCRIPT WITH SWIMMING FISH -->
     <script>
-        // Three.js 3D Neon Purple Background
         let scene, camera, renderer;
+        let fishes = [];
         let particles;
+
+        function createFish() {
+            const group = new THREE.Group();
+            
+            // Body - elongated
+            const bodyGeo = new THREE.ConeGeometry(6, 28, 8);
+            const bodyMat = new THREE.MeshPhongMaterial({
+                color: Math.random() > 0.5 ? 0xc026d3 : 0x22d3ee,
+                shininess: 30,
+                emissive: 0x800080,
+                emissiveIntensity: 0.6
+            });
+            const body = new THREE.Mesh(bodyGeo, bodyMat);
+            body.rotation.z = Math.PI / 2;
+            group.add(body);
+
+            // Tail
+            const tailGeo = new THREE.ConeGeometry(8, 15, 4);
+            const tail = new THREE.Mesh(tailGeo, bodyMat);
+            tail.position.x = -19;
+            tail.rotation.z = Math.PI / 2;
+            group.add(tail);
+
+            // Eye (small glowing dot)
+            const eyeGeo = new THREE.SphereGeometry(2, 8, 8);
+            const eyeMat = new THREE.MeshBasicMaterial({color: 0xffffff});
+            const eye = new THREE.Mesh(eyeGeo, eyeMat);
+            eye.position.set(8, 3, 0);
+            group.add(eye);
+
+            // Random properties for each fish
+            group.userData = {
+                speed: 1.2 + Math.random() * 1.8,
+                waveOffset: Math.random() * Math.PI * 2,
+                flapSpeed: 6 + Math.random() * 8,
+                size: 0.7 + Math.random() * 0.8
+            };
+            group.scale.setScalar(group.userData.size);
+
+            return group;
+        }
 
         function initThree() {
             const canvas = document.getElementById('three-canvas');
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            scene.fog = new THREE.Fog(0x0a001f, 400, 1200);
+
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            // Neon Purple Particles
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            const colors = [];
-            const color = new THREE.Color();
+            // Lights for neon glow
+            const ambientLight = new THREE.AmbientLight(0x9f5cff, 0.6);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xc026d3, 1.5, 1000);
+            pointLight.position.set(100, 100, 200);
+            scene.add(pointLight);
 
-            for (let i = 0; i < 5000; i++) {
-                vertices.push(
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000
+            // Create 22 neon fish
+            for (let i = 0; i < 22; i++) {
+                const fish = createFish();
+                fish.position.set(
+                    (Math.random() - 0.5) * 800,
+                    (Math.random() - 0.5) * 600,
+                    (Math.random() - 0.5) * 600 - 300
                 );
-                color.setHSL(0.75, 1, 0.8); // Neon purple
-                colors.push(color.r, color.g, color.b);
+                fish.rotation.y = Math.random() * Math.PI * 2;
+                fishes.push(fish);
+                scene.add(fish);
             }
 
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 3,
-                vertexColors: true,
+            // Faint background particles (bubbles)
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particleCount = 800;
+            const posArray = new Float32Array(particleCount * 3);
+            for (let i = 0; i < particleCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 1200;
+            }
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 2.5,
+                color: 0xa855f7,
                 transparent: true,
-                opacity: 0.8,
+                opacity: 0.6,
                 blending: THREE.AdditiveBlending
             });
-
-            particles = new THREE.Points(geometry, material);
+            particles = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particles);
 
-            // Floating Torus (neon glow)
-            const torusGeo = new THREE.TorusKnotGeometry(15, 4, 128, 32);
-            const torusMat = new THREE.MeshBasicMaterial({
-                color: 0xc026d3,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.3
-            });
-            const torus = new THREE.Mesh(torusGeo, torusMat);
-            torus.position.set(-80, 60, -150);
-            scene.add(torus);
-
-            camera.position.z = 600;
+            camera.position.z = 650;
 
             function animate() {
                 requestAnimationFrame(animate);
-                particles.rotation.y += 0.0005;
-                torus.rotation.x += 0.005;
-                torus.rotation.y += 0.008;
+                const time = Date.now() * 0.001;
+
+                fishes.forEach(fish => {
+                    // Forward swimming
+                    const direction = new THREE.Vector3(1, 0, 0);
+                    direction.applyQuaternion(fish.quaternion);
+                    fish.position.add(direction.multiplyScalar(fish.userData.speed));
+
+                    // Gentle up-down wave
+                    fish.position.y += Math.sin(time * 2 + fish.userData.waveOffset) * 0.6;
+
+                    // Tail flap animation
+                    const tail = fish.children[1];
+                    tail.rotation.z = Math.sin(time * fish.userData.flapSpeed) * 0.8 + (Math.PI / 2);
+
+                    // Wrap around boundaries
+                    if (fish.position.x > 650) fish.position.x = -650;
+                    if (fish.position.x < -650) fish.position.x = 650;
+                    if (fish.position.y > 400) fish.position.y = -400;
+                    if (fish.position.y < -400) fish.position.y = 400;
+                });
+
+                // Slow bubble movement
+                if (particles) particles.rotation.y = time * 0.05;
+
                 renderer.render(scene, camera);
             }
             animate();
         }
 
         window.addEventListener('resize', () => {
-            if (renderer) {
+            if (camera && renderer) {
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -196,7 +255,6 @@
         // Initialize everything
         window.onload = () => {
             initThree();
-            // Tailwind script already loaded
         };
     </script>
 </body>
