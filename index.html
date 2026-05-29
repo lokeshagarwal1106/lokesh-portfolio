@@ -10,13 +10,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .neon-purple { text-shadow: 0 0 25px #c026d3, 0 0 50px #c026d3; }
-        .glass { background: rgba(10, 0, 31, 0.88); backdrop-filter: blur(24px); border: 1px solid rgba(192, 38, 211, 0.45); }
+        .glass { 
+            background: rgba(10, 0, 31, 0.88); 
+            backdrop-filter: blur(24px); 
+            border: 1px solid rgba(192, 38, 211, 0.45);
+        }
         .hero-text { text-shadow: 0 0 40px rgba(192, 38, 211, 0.8); }
     </style>
 </head>
 <body class="bg-[#0a001f] text-white overflow-x-hidden">
+
+    <!-- NEON PURPLE AQUARIUM BACKGROUND -->
     <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
 
+    <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-purple-500/30">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold neon-purple">LOKESH AGARWAL</h1>
@@ -30,111 +37,276 @@
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="min-h-screen flex items-center relative z-10">
         <div class="max-w-5xl mx-auto px-6 text-center pt-20">
             <h2 class="text-6xl md:text-7xl font-bold tracking-tighter neon-purple mb-4 hero-text">LOKESH AGARWAL</h2>
             <p class="text-3xl md:text-4xl text-purple-300 mb-8">AI Evaluation Specialist | Prompt Engineer | AI &amp; Structured Data Generalist</p>
             <p class="max-w-2xl mx-auto text-lg text-purple-200/90 mb-12">Delhi, India (Remote) • Immediate Availability • Full-Time / Contract</p>
-            <a href="#contact" class="inline-block px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-semibold text-xl hover:scale-105 transition transform shadow-2xl shadow-purple-500/50">Let's Connect</a>
+            <a href="#contact" 
+               class="inline-block px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-semibold text-xl hover:scale-105 transition transform shadow-2xl shadow-purple-500/50">
+               Let's Connect
+            </a>
         </div>
     </section>
 
-    <!-- Baaki sections same (about, skills, experience, projects, education, contact) -->
+    <!-- Professional Summary -->
     <section id="about" class="py-24 relative z-10 bg-black/40">
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Summary</h2>
             <div class="glass rounded-3xl p-10">
-                <p class="text-lg leading-relaxed text-purple-100">Results-driven AI Evaluation Specialist, Prompt Engineer, and Multilingual Generalist with professional experience supporting AI training, response evaluation, structured data validation, digital content workflows, and multilingual quality assurance across Hindi and English environments. Experienced in evaluating AI-generated outputs for reasoning quality, factual accuracy, contextual relevance, instruction adherence, workflow consistency, and analytical reliability within AI evaluation pipelines. Strong familiarity with structured datasets, JSON validation workflows, schema compliance review, machine-readable data inspection, Python-supported workflow handling, technical and non-technical content writing, digital marketing support tasks, and AI-driven quality assurance processes.</p>
+                <p class="text-lg leading-relaxed text-purple-100">
+                    Results-driven AI Evaluation Specialist, Prompt Engineer, and Multilingual Generalist with professional experience supporting AI training, response evaluation, structured data validation, digital content workflows, and multilingual quality assurance across Hindi and English environments. Experienced in evaluating AI-generated outputs for reasoning quality, factual accuracy, contextual relevance, instruction adherence, workflow consistency, and analytical reliability within AI evaluation pipelines. Strong familiarity with structured datasets, JSON validation workflows, schema compliance review, machine-readable data inspection, Python-supported workflow handling, technical and non-technical content writing, digital marketing support tasks, and AI-driven quality assurance processes.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Skills, Experience, Projects, Education, Languages, Contact sections ko bhi same rakh sakta hai jaise pehle tha. Agar chahiye toh bol, lekin abhi sirf machli issue solve kar rahe hain. -->
+    <!-- Core Skills -->
+    <section id="skills" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Core Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">AI Response Evaluation &amp; Reinforcement Feedback</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Prompt Engineering &amp; Instruction Optimization</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Structured Data Validation &amp; JSON Workflow Review</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">AI Evaluation Pipeline Support &amp; Quality Assurance</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Schema Compliance &amp; Formatting Verification</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Python-Supported Workflow Handling &amp; Data Processing</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Technical and Non-Technical Content Writing</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Digital Marketing Support &amp; Content Workflows</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Analytical Error Detection &amp; Consistency Validation</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Data Annotation, Entity Tagging &amp; PII Classification</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Multilingual Content Review (Hindi &amp; English)</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Professional Presentation Design (PPT/PPTX)</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Translation, Localization and Contextual Adaptation</div>
+                <div class="glass p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition">Structured Problem Solving and Workflow Coordination</div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">© 2026 Lokesh Agarwal</footer>
+    <!-- Professional Experience -->
+    <section id="experience" class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Experience</h2>
+            <div class="glass rounded-3xl p-10">
+                <div class="flex justify-between items-start mb-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Freelance AI Evaluation Specialist | Prompt Engineer</h3>
+                        <p class="text-purple-300">Remote • 2023 – Present</p>
+                    </div>
+                </div>
+                <ul class="list-disc pl-6 space-y-4 text-purple-100 text-base">
+                    <li>Evaluated and ranked AI-generated responses across multilingual workflows focusing on reasoning quality, factual correctness, clarity, contextual alignment, and instruction-following.</li>
+                    <li>Developed and refined prompts for analytical, multilingual, reasoning-focused, creative, and workflow-driven AI evaluation projects.</li>
+                    <li>Performed structured data validation tasks involving JSON datasets, schema compliance verification, formatting checks, and machine-readable data review.</li>
+                    <li>Worked with structured datasets, JSON validation workflows, and Python-supported data handling processes during AI evaluation and quality assurance tasks.</li>
+                    <li>Identified hidden formatting inconsistencies and validation-breaking issues affecting automated processing pipelines and structured evaluation systems.</li>
+                    <li>Supported digital marketing and content-focused workflows including presentation design, structured reporting, and content organization.</li>
+                    <li>Created technical and non-technical written content for AI, business, and workflow-oriented projects.</li>
+                    <li>Conducted bilingual Hindi-English content review, contextual adaptation, and localization checks for AI-generated and client-facing materials.</li>
+                    <li>Managed end-to-end freelance workflows including communication, revisions, delivery management, and quality assurance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
+    <!-- Key Projects -->
+    <section id="projects" class="py-24 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Key Projects and Contributions</h2>
+            <div class="glass rounded-3xl p-10">
+                <ul class="list-disc pl-6 space-y-4 text-purple-100 text-base">
+                    <li>Worked on multilingual AI evaluation workflows involving reasoning analysis, prompt refinement, schema validation, and structured data quality review.</li>
+                    <li>Resolved validation inconsistencies in machine-readable JSON datasets affecting automated AI processing and evaluation systems.</li>
+                    <li>Contributed to technical and non-technical content workflows requiring analytical reasoning, contextual evaluation, and consistency verification.</li>
+                    <li>Supported digital content and AI-related projects requiring detail-oriented quality assurance and structured workflow handling.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education, Languages & Strengths -->
+    <section class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Education</h2>
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold">B.COM (HONS)</h3>
+                    <p class="text-purple-300">2024</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Languages</h2>
+                <div class="glass rounded-3xl p-8 space-y-6">
+                    <div><span class="font-semibold">Hindi</span> — Native / Full Professional Fluency</div>
+                    <div><span class="font-semibold">English</span> — Professional Working Proficiency</div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Additional Strengths</h2>
+                <div class="glass rounded-3xl p-8 text-base space-y-4">
+                    <div>• Strong analytical reasoning and structured problem solving</div>
+                    <div>• Exceptional attention to detail in AI evaluation workflows</div>
+                    <div>• Fast adaptation to new AI tools, systems, and workflow environments</div>
+                    <div>• Cross-domain flexibility with effective remote collaboration</div>
+                    <div>• Consistent delivery under quality-sensitive and deadline-driven environments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold neon-purple mb-8">Let's Work Together</h2>
+            <p class="text-xl text-purple-200 mb-12">Delhi, India (Remote) • Open for Full-Time / Contract roles in AI Evaluation, Prompt Engineering &amp; Structured Data</p>
+            
+            <a href="mailto:lokeshlucky0123456789@gmail.com" 
+               class="inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-500 px-8 py-5 rounded-2xl text-xl font-semibold transition mb-8">
+                📧 lokeshlucky0123456789@gmail.com
+            </a>
+
+            <a href="https://www.linkedin.com/in/lokesh-agarwal-ba7475248" target="_blank"
+               class="inline-flex items-center gap-3 border border-purple-400 hover:bg-purple-500/10 px-8 py-5 rounded-2xl text-xl font-semibold transition">
+                Connect on LinkedIn →
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">
+        © 2026 Lokesh Agarwal
+    </footer>
+
+    <!-- FULL NEON PURPLE AQUARIUM SCRIPT -->
     <script>
         let scene, camera, renderer, fishes = [], bubbles;
         const neonColors = [0x00bfff, 0xc026d3, 0xff00ff, 0x39ff14];
+
         function createRealisticFish() {
             const group = new THREE.Group();
-            const bodyColor = neonColors[Math.floor(Math.random()*neonColors.length)];
-            const bodyMat = new THREE.MeshPhongMaterial({color: bodyColor, shininess: 95, emissive: bodyColor, emissiveIntensity: 0.9, transparent: true, opacity: 0.96});
-            const body = new THREE.Mesh(new THREE.SphereGeometry(8,12,8), bodyMat);
-            body.scale.set(1.95,1,0.78); group.add(body);
-            const tail = new THREE.Mesh(new THREE.ConeGeometry(10.5,25,4), bodyMat);
-            tail.position.x = -19.5; tail.rotation.z = Math.PI/2; group.add(tail);
-            const dorsal = new THREE.Mesh(new THREE.PlaneGeometry(11.5,16), bodyMat);
-            dorsal.rotation.y = Math.PI/2; dorsal.position.set(1,10.5,0); group.add(dorsal);
-            const sideL = new THREE.Mesh(new THREE.PlaneGeometry(9.5,8.5), bodyMat);
-            sideL.rotation.z = 0.65; sideL.position.set(5,3.5,7.5); group.add(sideL);
+            const bodyColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+            const bodyMat = new THREE.MeshPhongMaterial({ 
+                color: bodyColor, 
+                shininess: 95, 
+                emissive: bodyColor, 
+                emissiveIntensity: 0.9, 
+                transparent: true, 
+                opacity: 0.96 
+            });
+            const body = new THREE.Mesh(new THREE.SphereGeometry(8, 12, 8), bodyMat);
+            body.scale.set(1.95, 1, 0.78); group.add(body);
+
+            const tail = new THREE.Mesh(new THREE.ConeGeometry(10.5, 25, 4), bodyMat);
+            tail.position.x = -19.5; tail.rotation.z = Math.PI / 2; group.add(tail);
+
+            const dorsal = new THREE.Mesh(new THREE.PlaneGeometry(11.5, 16), bodyMat);
+            dorsal.rotation.y = Math.PI / 2; dorsal.position.set(1, 10.5, 0); group.add(dorsal);
+
+            const sideL = new THREE.Mesh(new THREE.PlaneGeometry(9.5, 8.5), bodyMat);
+            sideL.rotation.z = 0.65; sideL.position.set(5, 3.5, 7.5); group.add(sideL);
             const sideR = sideL.clone(); sideR.rotation.z = -0.65; sideR.position.z = -7.5; group.add(sideR);
+
             const eyeMat = new THREE.MeshPhongMaterial({color: 0xffffff});
             const pupilMat = new THREE.MeshPhongMaterial({color: 0x111111});
-            const eyeL = new THREE.Mesh(new THREE.SphereGeometry(2.8,16,16), eyeMat);
-            eyeL.position.set(9.5,3.8,4.8); group.add(eyeL);
-            const pupilL = new THREE.Mesh(new THREE.SphereGeometry(1.3,16,16), pupilMat);
-            pupilL.position.set(11,3.8,5); group.add(pupilL);
+            const eyeL = new THREE.Mesh(new THREE.SphereGeometry(2.8, 16, 16), eyeMat);
+            eyeL.position.set(9.5, 3.8, 4.8); group.add(eyeL);
+            const pupilL = new THREE.Mesh(new THREE.SphereGeometry(1.3, 16, 16), pupilMat);
+            pupilL.position.set(11, 3.8, 5); group.add(pupilL);
             const eyeR = eyeL.clone(); eyeR.position.z = -4.8; group.add(eyeR);
             const pupilR = pupilL.clone(); pupilR.position.z = -5; group.add(pupilR);
-            group.userData = {speed: 1.1 + Math.random()*1.1, waveOffset: Math.random()*Math.PI*2, flapSpeed: 4.5 + Math.random()*4};
+
+            group.userData = { 
+                speed: 1.05 + Math.random() * 1.05, 
+                waveOffset: Math.random() * Math.PI * 2, 
+                flapSpeed: 4.2 + Math.random() * 3.8 
+            };
             return group;
         }
+
         function initThree() {
             const canvas = document.getElementById('three-canvas');
-            scene = new THREE.Scene(); scene.fog = new THREE.Fog(0x1a0033, 120, 850);
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1500);
-            renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true, antialias: true});
+            scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x1a0033, 120, 850);
+
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1500);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
             scene.add(new THREE.AmbientLight(0xc026d3, 1.3));
             const topLight = new THREE.PointLight(0x00ffff, 2.8, 2200);
-            topLight.position.set(0,450,350); scene.add(topLight);
+            topLight.position.set(0, 450, 350);
+            scene.add(topLight);
+
             for (let i = 0; i < 38; i++) {
                 const fish = createRealisticFish();
-                fish.position.set((Math.random()-0.5)*720, (Math.random()-0.5)*520, (Math.random()-0.5)*420-220);
-                fish.rotation.y = Math.random()*Math.PI*2;
-                fishes.push(fish); scene.add(fish);
+                fish.position.set((Math.random() - 0.5) * 720, (Math.random() - 0.5) * 520, (Math.random() - 0.5) * 420 - 220);
+                fish.rotation.y = Math.random() * Math.PI * 2;
+                fishes.push(fish);
+                scene.add(fish);
             }
+
             const bubbleGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(1400*3);
-            for (let i = 0; i < 1400*3; i+=3) {
-                positions[i] = (Math.random()-0.5)*1050;
-                positions[i+1] = (Math.random()-0.5)*850-350;
-                positions[i+2] = (Math.random()-0.5)*650;
+            const positions = new Float32Array(1400 * 3);
+            for (let i = 0; i < 1400 * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 1050;
+                positions[i + 1] = (Math.random() - 0.5) * 850 - 350;
+                positions[i + 2] = (Math.random() - 0.5) * 650;
             }
             bubbleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            bubbles = new THREE.Points(bubbleGeo, new THREE.PointsMaterial({size:3.8, color:0xa855f7, transparent:true, opacity:0.65, blending:THREE.AdditiveBlending}));
+            bubbles = new THREE.Points(bubbleGeo, new THREE.PointsMaterial({
+                size: 3.8,
+                color: 0xa855f7,
+                transparent: true,
+                opacity: 0.65,
+                blending: THREE.AdditiveBlending
+            }));
             scene.add(bubbles);
-            camera.position.set(0,40,580);
+
+            camera.position.set(0, 40, 580);
+
             function animate() {
                 requestAnimationFrame(animate);
-                const time = Date.now()*0.001;
+                const time = Date.now() * 0.001;
+
                 fishes.forEach(fish => {
-                    const dir = new THREE.Vector3(1,0,0); dir.applyQuaternion(fish.quaternion);
+                    const dir = new THREE.Vector3(1, 0, 0);
+                    dir.applyQuaternion(fish.quaternion);
                     fish.position.add(dir.multiplyScalar(fish.userData.speed));
-                    fish.position.y += Math.sin(time*2.4 + fish.userData.waveOffset)*1.4;
+
+                    fish.position.y += Math.sin(time * 2.4 + fish.userData.waveOffset) * 1.4;
+                    
                     const tail = fish.children[1];
-                    tail.rotation.z = Math.sin(time*fish.userData.flapSpeed)*1.25 + Math.PI/2;
-                    fish.rotation.z = Math.sin(time*2.8 + fish.userData.waveOffset)*0.065;
+                    tail.rotation.z = Math.sin(time * fish.userData.flapSpeed) * 1.25 + (Math.PI / 2);
+
+                    fish.rotation.z = Math.sin(time * 2.8 + fish.userData.waveOffset) * 0.065;
+
                     if (fish.position.x > 700) fish.position.x = -700;
                     if (fish.position.x < -700) fish.position.x = 700;
                     if (fish.position.y > 410) fish.position.y = -410;
                     if (fish.position.y < -410) fish.position.y = 410;
                 });
-                if (bubbles) { bubbles.position.y += 1.25; if (bubbles.position.y > 680) bubbles.position.y = -680; }
+
+                if (bubbles) {
+                    bubbles.position.y += 1.25;
+                    if (bubbles.position.y > 680) bubbles.position.y = -680;
+                }
+
                 renderer.render(scene, camera);
             }
             animate();
         }
+
         window.addEventListener('resize', () => {
             if (camera && renderer) {
-                camera.aspect = window.innerWidth/window.innerHeight;
+                camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
             }
         });
+
         window.onload = initThree;
     </script>
 </body>
-</html> 
+</html>
