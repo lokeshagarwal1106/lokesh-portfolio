@@ -11,159 +11,155 @@
         body { font-family: 'Inter', sans-serif; }
         .neon-purple { text-shadow: 0 0 25px #c026d3, 0 0 50px #c026d3; }
         .glass { background: rgba(10, 0, 31, 0.88); backdrop-filter: blur(24px); border: 1px solid rgba(192, 38, 211, 0.45); }
-
-        #splash {
-            position: fixed; top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: linear-gradient(180deg, #1a0033, #0a001f);
-            z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column;
-        }
-        .scene { position: relative; width: 320px; height: 480px; }
-        .door {
-            width: 100%; height: 100%;
-            background: linear-gradient(#d4af77, #f5d18a);
-            border: 18px solid #b38b3d;
-            border-radius: 15px;
-            box-shadow: 0 0 70px rgba(212,175,119,0.9);
-            transition: transform 1.6s cubic-bezier(0.6, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-        }
-        .door.open { transform: rotateY(-110deg); }
-        .door-handle {
-            position: absolute; right: 45px; top: 50%;
-            width: 32px; height: 32px;
-            background: #b38b3d; border-radius: 50%;
-        }
-        .girl {
-            position: absolute;
-            left: -110px; top: 110px;
-            width: 140px;
-            animation: wave 2.5s infinite ease-in-out;
-        }
-        @keyframes wave { 0%,100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
     </style>
 </head>
 <body class="bg-[#0a001f] text-white overflow-x-hidden">
 
-    <!-- GOLDEN DOOR SPLASH -->
-    <div id="splash">
-        <div class="scene">
-            <!-- Khubsurat Ladki (black dress, fair skin, long hair) -->
-            <svg class="girl" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
-                <!-- Long hair -->
-                <path d="M65 35 Q50 70 50 110 Q50 135 75 150 Q100 160 125 150 Q150 135 150 110 Q150 70 135 35 Q100 20 65 35" fill="#2c1f16"/>
-                <!-- Face -->
-                <ellipse cx="100" cy="85" rx="38" ry="45" fill="#f8d1c5"/>
-                <!-- Black dress body -->
-                <rect x="65" y="125" width="70" height="160" rx="15" fill="#1a1a1a"/>
-                <!-- Arms -->
-                <line x1="75" y1="140" x2="45" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
-                <line x1="125" y1="140" x2="155" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
-                <!-- Eyes -->
-                <circle cx="78" cy="75" r="7" fill="#111"/>
-                <circle cx="122" cy="75" r="7" fill="#111"/>
-                <!-- Smile -->
-                <path d="M78 100 Q100 115 122 100" fill="none" stroke="#e11d48" stroke-width="6"/>
-            </svg>
+    <!-- Neon Purple Aquarium Background -->
+    <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
 
-            <!-- Golden Door -->
-            <div id="door" class="door" onclick="openDoor()">
-                <div class="door-handle"></div>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-purple-500/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold neon-purple">LOKESH AGARWAL</h1>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-purple-400 transition">About</a>
+                <a href="#skills" class="hover:text-purple-400 transition">Skills</a>
+                <a href="#experience" class="hover:text-purple-400 transition">Experience</a>
+                <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
             </div>
         </div>
+    </nav>
 
-        <h1 class="text-4xl font-bold text-amber-300 mt-8">LOKESH AGARWAL</h1>
-        <p class="text-purple-300 text-xl mt-3">Welcome to Lokesh Agarwal Portfolio</p>
-        <button onclick="openDoor()" class="mt-8 px-14 py-6 text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-300 text-black rounded-3xl shadow-2xl hover:scale-110 transition">Click to View Portfolio</button>
-    </div>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center relative z-10">
+        <div class="max-w-5xl mx-auto px-6 text-center pt-20">
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter neon-purple mb-4">LOKESH AGARWAL</h2>
+            <p class="text-2xl md:text-3xl lg:text-4xl text-purple-300 mb-8">AI Evaluation Specialist | Prompt Engineer | AI &amp; Structured Data Generalist</p>
+            <p class="max-w-2xl mx-auto text-base md:text-lg text-purple-200/90 mb-12">Delhi, India (Remote) • Immediate Availability • Full-Time / Contract</p>
+            <a href="#contact" class="inline-block px-8 py-4 md:px-10 md:py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-semibold text-lg md:text-xl hover:scale-105 transition">Let's Connect</a>
+        </div>
+    </section>
 
-    <!-- FULL PORTFOLIO -->
-    <div id="portfolio" class="hidden">
+    <!-- Professional Summary -->
+    <section id="about" class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Summary</h2>
+            <div class="glass rounded-3xl p-8 md:p-10">
+                <p class="text-base md:text-lg leading-relaxed text-purple-100">Results-driven AI Evaluation Specialist, Prompt Engineer, and Multilingual Generalist with professional experience supporting AI training, response evaluation, structured data validation, digital content workflows, and multilingual quality assurance across Hindi and English environments. Experienced in evaluating AI-generated outputs for reasoning quality, factual accuracy, contextual relevance, instruction adherence, workflow consistency, and analytical reliability within AI evaluation pipelines. Strong familiarity with structured datasets, JSON validation workflows, schema compliance review, machine-readable data inspection, Python-supported workflow handling, technical and non-technical content writing, digital marketing support tasks, and AI-driven quality assurance processes.</p>
+            </div>
+        </div>
+    </section>
 
-        <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
+    <!-- Core Skills -->
+    <section id="skills" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Core Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">AI Response Evaluation &amp; Reinforcement Feedback</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Prompt Engineering &amp; Instruction Optimization</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Structured Data Validation &amp; JSON Workflow Review</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">AI Evaluation Pipeline Support &amp; Quality Assurance</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Schema Compliance &amp; Formatting Verification</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Python-Supported Workflow Handling &amp; Data Processing</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Technical and Non-Technical Content Writing</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Digital Marketing Support &amp; Content Workflows</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Analytical Error Detection &amp; Consistency Validation</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Data Annotation, Entity Tagging &amp; PII Classification</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Multilingual Content Review (Hindi &amp; English)</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Professional Presentation Design (PPT/PPTX)</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Translation, Localization and Contextual Adaptation</div>
+                <div class="glass p-5 md:p-6 rounded-3xl border border-purple-400/30 hover:border-purple-400 transition text-sm md:text-base">Structured Problem Solving and Workflow Coordination</div>
+            </div>
+        </div>
+    </section>
 
-        <nav class="fixed top-0 w-full z-50 glass border-b border-purple-500/30">
-            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <h1 class="text-2xl font-bold neon-purple">LOKESH AGARWAL</h1>
-                <div class="flex gap-8 text-sm font-medium">
-                    <a href="#about" class="hover:text-purple-400 transition">About</a>
-                    <a href="#skills" class="hover:text-purple-400 transition">Skills</a>
-                    <a href="#experience" class="hover:text-purple-400 transition">Experience</a>
-                    <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
-                    <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
+    <!-- Professional Experience -->
+    <section id="experience" class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Experience</h2>
+            <div class="glass rounded-3xl p-8 md:p-10">
+                <div class="flex justify-between items-start mb-8">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-semibold">Freelance AI Evaluation Specialist | Prompt Engineer</h3>
+                        <p class="text-purple-300">Remote • 2023 – Present</p>
+                    </div>
+                </div>
+                <ul class="list-disc pl-6 space-y-4 text-purple-100 text-sm md:text-base">
+                    <li>Evaluated and ranked AI-generated responses across multilingual workflows focusing on reasoning quality, factual correctness, clarity, contextual alignment, and instruction-following.</li>
+                    <li>Developed and refined prompts for analytical, multilingual, reasoning-focused, creative, and workflow-driven AI evaluation projects.</li>
+                    <li>Performed structured data validation tasks involving JSON datasets, schema compliance verification, formatting checks, and machine-readable data review.</li>
+                    <li>Worked with structured datasets, JSON validation workflows, and Python-supported data handling processes during AI evaluation and quality assurance tasks.</li>
+                    <li>Identified hidden formatting inconsistencies and validation-breaking issues affecting automated processing pipelines and structured evaluation systems.</li>
+                    <li>Supported digital marketing and content-focused workflows including presentation design, structured reporting, and content organization.</li>
+                    <li>Created technical and non-technical written content for AI, business, and workflow-oriented projects.</li>
+                    <li>Conducted bilingual Hindi-English content review, contextual adaptation, and localization checks for AI-generated and client-facing materials.</li>
+                    <li>Managed end-to-end freelance workflows including communication, revisions, delivery management, and quality assurance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section id="projects" class="py-24 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Key Projects and Contributions</h2>
+            <div class="glass rounded-3xl p-8 md:p-10">
+                <ul class="list-disc pl-6 space-y-4 text-purple-100 text-sm md:text-base">
+                    <li>Worked on multilingual AI evaluation workflows involving reasoning analysis, prompt refinement, schema validation, and structured data quality review.</li>
+                    <li>Resolved validation inconsistencies in machine-readable JSON datasets affecting automated AI processing and evaluation systems.</li>
+                    <li>Contributed to technical and non-technical content workflows requiring analytical reasoning, contextual evaluation, and consistency verification.</li>
+                    <li>Supported digital content and AI-related projects requiring detail-oriented quality assurance and structured workflow handling.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education, Languages & Strengths -->
+    <section class="py-24 relative z-10 bg-black/40">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Education</h2>
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold">B.COM (HONS)</h3>
+                    <p class="text-purple-300">2024</p>
                 </div>
             </div>
-        </nav>
-
-        <section class="min-h-screen flex items-center relative z-10">
-            <div class="max-w-5xl mx-auto px-6 text-center pt-20">
-                <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter neon-purple mb-4">LOKESH AGARWAL</h2>
-                <p class="text-2xl md:text-3xl lg:text-4xl text-purple-300 mb-8">AI Evaluation Specialist | Prompt Engineer | AI &amp; Structured Data Generalist</p>
-                <p class="max-w-2xl mx-auto text-base md:text-lg text-purple-200/90 mb-12">Delhi, India (Remote) • Immediate Availability • Full-Time / Contract</p>
-                <a href="#contact" class="inline-block px-8 py-4 md:px-10 md:py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-semibold text-lg md:text-xl hover:scale-105 transition">Let's Connect</a>
-            </div>
-        </section>
-
-        <!-- Baaki sections (Summary, Skills, Experience, Projects, Education, Languages, Contact) -->
-        <section id="about" class="py-24 relative z-10 bg-black/40">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Summary</h2>
-                <div class="glass rounded-3xl p-8 md:p-10">
-                    <p class="text-base md:text-lg leading-relaxed text-purple-100">Results-driven AI Evaluation Specialist, Prompt Engineer, and Multilingual Generalist with professional experience supporting AI training, response evaluation, structured data validation, digital content workflows, and multilingual quality assurance across Hindi and English environments. Experienced in evaluating AI-generated outputs for reasoning quality, factual accuracy, contextual relevance, instruction adherence, workflow consistency, and analytical reliability within AI evaluation pipelines. Strong familiarity with structured datasets, JSON validation workflows, schema compliance review, machine-readable data inspection, Python-supported workflow handling, technical and non-technical content writing, digital marketing support tasks, and AI-driven quality assurance processes.</p>
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Languages</h2>
+                <div class="glass rounded-3xl p-8 space-y-6">
+                    <div><span class="font-semibold">Hindi</span> — Native / Full Professional Fluency</div>
+                    <div><span class="font-semibold">English</span> — Professional Working Proficiency</div>
                 </div>
             </div>
-        </section>
+            <div>
+                <h2 class="text-4xl font-bold neon-purple mb-8">Additional Strengths</h2>
+                <div class="glass rounded-3xl p-8 text-base space-y-4">
+                    <div>• Strong analytical reasoning and structured problem solving</div>
+                    <div>• Exceptional attention to detail in AI evaluation workflows</div>
+                    <div>• Fast adaptation to new AI tools, systems, and workflow environments</div>
+                    <div>• Cross-domain flexibility with effective remote collaboration</div>
+                    <div>• Consistent delivery under quality-sensitive and deadline-driven environments</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Skills, Experience, Projects, Education, Contact sections same as before (full content) -->
+    <!-- Contact -->
+    <section id="contact" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold neon-purple mb-8">Let's Work Together</h2>
+            <p class="text-xl text-purple-200 mb-12">Delhi, India (Remote) • Open for Full-Time / Contract roles in AI Evaluation, Prompt Engineering &amp; Structured Data</p>
+            <a href="mailto:lokeshlucky0123456789@gmail.com" class="inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-500 px-8 py-5 rounded-2xl text-xl font-semibold transition mb-8">📧 lokeshlucky0123456789@gmail.com</a>
+            <a href="https://www.linkedin.com/in/lokesh-agarwal-ba7475248" target="_blank" class="inline-flex items-center gap-3 border border-purple-400 hover:bg-purple-500/10 px-8 py-5 rounded-2xl text-xl font-semibold transition">Connect on LinkedIn →</a>
+        </div>
+    </section>
 
-        <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">© 2026 Lokesh Agarwal</footer>
-    </div>
+    <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">© 2026 Lokesh Agarwal</footer>
 
+    <!-- Neon Purple Aquarium Script -->
     <script>
-        function openDoor() {
-            document.getElementById('door').classList.add('open');
-            createFireworks();
-            playSound();
-            setTimeout(() => {
-                document.getElementById('splash').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('splash').style.display = 'none';
-                    document.getElementById('portfolio').classList.remove('hidden');
-                    document.getElementById('portfolio').style.opacity = '1';
-                    startAquarium();
-                }, 1400);
-            }, 1600);
-        }
-
-        function createFireworks() {
-            for (let i = 0; i < 35; i++) {
-                setTimeout(() => {
-                    const f = document.createElement('div');
-                    f.style.position = 'fixed';
-                    f.style.left = Math.random()*100 + 'vw';
-                    f.style.top = Math.random()*70 + 'vh';
-                    f.style.width = '12px';
-                    f.style.height = '12px';
-                    f.style.borderRadius = '50%';
-                    f.style.background = ['#f5d18a','#c026d3','#00bfff','#39ff14'][Math.floor(Math.random()*4)];
-                    f.style.boxShadow = '0 0 40px 20px currentColor';
-                    f.style.zIndex = '10000';
-                    document.body.appendChild(f);
-                    setTimeout(() => f.remove(), 1800);
-                }, i * 7);
-            }
-        }
-
-        function playSound() {
-            const audio = new Audio('https://www.soundjay.com/buttons/fireworks.mp3');
-            audio.volume = 0.7;
-            audio.play().catch(() => {});
-        }
-
-        // Aquarium
         let scene, camera, renderer, fishes = [], bubbles;
         const neonColors = [0x00bfff, 0xc026d3, 0xff00ff, 0x39ff14];
 
@@ -192,7 +188,7 @@
             return group;
         }
 
-        function startAquarium() {
+        function initThree() {
             const canvas = document.getElementById('three-canvas');
             scene = new THREE.Scene(); scene.fog = new THREE.Fog(0x1a0033, 120, 850);
             camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1500);
@@ -247,6 +243,8 @@
                 renderer.setSize(window.innerWidth, window.innerHeight);
             }
         });
+
+        window.onload = initThree;
     </script>
 </body>
 </html>
