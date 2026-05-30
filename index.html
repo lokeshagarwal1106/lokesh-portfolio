@@ -12,7 +12,6 @@
         .neon-purple { text-shadow: 0 0 25px #c026d3, 0 0 50px #c026d3; }
         .glass { background: rgba(10, 0, 31, 0.88); backdrop-filter: blur(24px); border: 1px solid rgba(192, 38, 211, 0.45); }
 
-        /* Golden Door Splash */
         #splash {
             position: fixed; top: 0; left: 0;
             width: 100vw; height: 100vh;
@@ -21,16 +20,16 @@
             display: flex; align-items: center; justify-content: center;
             flex-direction: column;
         }
-        .door-container { width: 280px; height: 420px; perspective: 1200px; }
+        .scene { position: relative; width: 320px; height: 480px; }
         .door {
             width: 100%; height: 100%;
             background: linear-gradient(#d4af77, #f5d18a);
             border: 18px solid #b38b3d;
             border-radius: 15px;
             box-shadow: 0 0 70px rgba(212,175,119,0.9);
+            position: relative;
             transition: transform 1.6s cubic-bezier(0.6, 0, 0.2, 1);
             cursor: pointer;
-            position: relative;
         }
         .door.open { transform: rotateY(-110deg); }
         .door-handle {
@@ -40,28 +39,37 @@
         }
         .girl {
             position: absolute;
-            left: -100px; top: 130px;
-            width: 120px;
-            animation: wave 2s infinite;
+            left: -110px; top: 110px;
+            width: 140px;
+            animation: wave 2.5s infinite ease-in-out;
         }
-        @keyframes wave { 0%,100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+        @keyframes wave {
+            0%, 100% { transform: rotate(-12deg); }
+            50% { transform: rotate(12deg); }
+        }
     </style>
 </head>
 <body class="bg-[#0a001f] text-white overflow-x-hidden">
 
-    <!-- GOLDEN DOOR SPLASH -->
+    <!-- SPLASH SCREEN -->
     <div id="splash">
-        <div class="door-container">
-            <!-- Beautiful Girl -->
-            <svg class="girl" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="100" cy="80" rx="45" ry="55" fill="#f8d1c5"/>
-                <rect x="65" y="135" width="70" height="125" rx="10" fill="#c084fc"/>
-                <line x1="80" y1="155" x2="45" y2="230" stroke="#c084fc" stroke-width="18" stroke-linecap="round"/>
-                <line x1="120" y1="155" x2="155" y2="230" stroke="#c084fc" stroke-width="18" stroke-linecap="round"/>
-                <circle cx="100" cy="80" r="28" fill="#f8d1c5"/>
-                <circle cx="75" cy="68" r="9" fill="#111"/>
-                <circle cx="125" cy="68" r="9" fill="#111"/>
-                <path d="M72 105 Q100 118 128 105" fill="none" stroke="#e11d48" stroke-width="8"/>
+        <div class="scene">
+            <!-- Khubsurat Ladki (black dress, fair skin) -->
+            <svg class="girl" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hair -->
+                <path d="M70 40 Q55 80 55 110 Q55 130 80 145 Q100 155 120 145 Q145 130 145 110 Q145 80 130 40 Q100 25 70 40" fill="#3b2a1f"/>
+                <!-- Face -->
+                <ellipse cx="100" cy="85" rx="38" ry="45" fill="#f8d1c5"/>
+                <!-- Body - Black Dress -->
+                <rect x="65" y="125" width="70" height="160" rx="15" fill="#1f1f1f"/>
+                <!-- Arms -->
+                <line x1="75" y1="140" x2="45" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
+                <line x1="125" y1="140" x2="155" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
+                <!-- Eyes -->
+                <circle cx="78" cy="75" r="7" fill="#111"/>
+                <circle cx="122" cy="75" r="7" fill="#111"/>
+                <!-- Smile -->
+                <path d="M78 100 Q100 115 122 100" fill="none" stroke="#e11d48" stroke-width="6"/>
             </svg>
 
             <!-- Golden Door -->
@@ -70,9 +78,9 @@
             </div>
         </div>
 
-        <h1 class="text-4xl font-bold text-amber-300 mt-8">LOKESH AGARWAL</h1>
-        <p class="text-purple-300 text-xl mt-2">Welcome to Lokesh Agarwal Portfolio</p>
-        <button onclick="openDoor()" class="mt-8 px-12 py-5 text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-300 text-black rounded-3xl shadow-2xl hover:scale-110 transition">Click to View Portfolio</button>
+        <h1 class="text-4xl font-bold text-amber-300 mt-10">LOKESH AGARWAL</h1>
+        <p class="text-purple-300 text-xl mt-3">Welcome to Lokesh Agarwal Portfolio</p>
+        <button onclick="openDoor()" class="mt-8 px-14 py-6 text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-300 text-black rounded-3xl shadow-2xl hover:scale-110 transition">Click to View Portfolio</button>
     </div>
 
     <!-- PORTFOLIO -->
@@ -102,8 +110,8 @@
             </div>
         </section>
 
-        <!-- Baaki sections (Summary, Skills, Experience, etc.) same as before -->
-        <!-- (Pura content same hai jaise pehle tha) -->
+        <!-- Baaki pura content same (Summary, Skills, Experience, etc.) -->
+        <!-- Agar pura code chahiye toh bol, yeh sirf structure hai -->
 
         <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">© 2026 Lokesh Agarwal</footer>
     </div>
@@ -112,6 +120,7 @@
         function openDoor() {
             document.getElementById('door').classList.add('open');
             createFireworks();
+            playSound();
             setTimeout(() => {
                 document.getElementById('splash').style.opacity = '0';
                 setTimeout(() => {
@@ -124,22 +133,28 @@
         }
 
         function createFireworks() {
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 35; i++) {
                 setTimeout(() => {
                     const f = document.createElement('div');
                     f.style.position = 'fixed';
                     f.style.left = Math.random()*100 + 'vw';
                     f.style.top = Math.random()*70 + 'vh';
-                    f.style.width = '10px';
-                    f.style.height = '10px';
+                    f.style.width = '12px';
+                    f.style.height = '12px';
                     f.style.borderRadius = '50%';
                     f.style.background = ['#f5d18a','#c026d3','#00bfff','#39ff14'][Math.floor(Math.random()*4)];
-                    f.style.boxShadow = '0 0 30px 15px currentColor';
+                    f.style.boxShadow = '0 0 40px 20px currentColor';
                     f.style.zIndex = '10000';
                     document.body.appendChild(f);
-                    setTimeout(() => f.remove(), 1500);
-                }, i*10);
+                    setTimeout(() => f.remove(), 1800);
+                }, i * 7);
             }
+        }
+
+        function playSound() {
+            const audio = new Audio('https://www.soundjay.com/buttons/fireworks.mp3');
+            audio.volume = 0.7;
+            audio.play().catch(() => {});
         }
 
         // Aquarium script (same as before)
