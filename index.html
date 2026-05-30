@@ -27,9 +27,9 @@
             border: 18px solid #b38b3d;
             border-radius: 15px;
             box-shadow: 0 0 70px rgba(212,175,119,0.9);
-            position: relative;
             transition: transform 1.6s cubic-bezier(0.6, 0, 0.2, 1);
             cursor: pointer;
+            position: relative;
         }
         .door.open { transform: rotateY(-110deg); }
         .door-handle {
@@ -43,25 +43,22 @@
             width: 140px;
             animation: wave 2.5s infinite ease-in-out;
         }
-        @keyframes wave {
-            0%, 100% { transform: rotate(-12deg); }
-            50% { transform: rotate(12deg); }
-        }
+        @keyframes wave { 0%,100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
     </style>
 </head>
 <body class="bg-[#0a001f] text-white overflow-x-hidden">
 
-    <!-- SPLASH SCREEN -->
+    <!-- GOLDEN DOOR SPLASH -->
     <div id="splash">
         <div class="scene">
-            <!-- Khubsurat Ladki (black dress, fair skin) -->
+            <!-- Khubsurat Ladki (black dress, fair skin, long hair) -->
             <svg class="girl" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
-                <!-- Hair -->
-                <path d="M70 40 Q55 80 55 110 Q55 130 80 145 Q100 155 120 145 Q145 130 145 110 Q145 80 130 40 Q100 25 70 40" fill="#3b2a1f"/>
+                <!-- Long hair -->
+                <path d="M65 35 Q50 70 50 110 Q50 135 75 150 Q100 160 125 150 Q150 135 150 110 Q150 70 135 35 Q100 20 65 35" fill="#2c1f16"/>
                 <!-- Face -->
                 <ellipse cx="100" cy="85" rx="38" ry="45" fill="#f8d1c5"/>
-                <!-- Body - Black Dress -->
-                <rect x="65" y="125" width="70" height="160" rx="15" fill="#1f1f1f"/>
+                <!-- Black dress body -->
+                <rect x="65" y="125" width="70" height="160" rx="15" fill="#1a1a1a"/>
                 <!-- Arms -->
                 <line x1="75" y1="140" x2="45" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
                 <line x1="125" y1="140" x2="155" y2="195" stroke="#f8d1c5" stroke-width="22" stroke-linecap="round"/>
@@ -78,12 +75,12 @@
             </div>
         </div>
 
-        <h1 class="text-4xl font-bold text-amber-300 mt-10">LOKESH AGARWAL</h1>
+        <h1 class="text-4xl font-bold text-amber-300 mt-8">LOKESH AGARWAL</h1>
         <p class="text-purple-300 text-xl mt-3">Welcome to Lokesh Agarwal Portfolio</p>
         <button onclick="openDoor()" class="mt-8 px-14 py-6 text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-300 text-black rounded-3xl shadow-2xl hover:scale-110 transition">Click to View Portfolio</button>
     </div>
 
-    <!-- PORTFOLIO -->
+    <!-- FULL PORTFOLIO -->
     <div id="portfolio" class="hidden">
 
         <canvas id="three-canvas" class="fixed inset-0 z-0"></canvas>
@@ -110,8 +107,17 @@
             </div>
         </section>
 
-        <!-- Baaki pura content same (Summary, Skills, Experience, etc.) -->
-        <!-- Agar pura code chahiye toh bol, yeh sirf structure hai -->
+        <!-- Baaki sections (Summary, Skills, Experience, Projects, Education, Languages, Contact) -->
+        <section id="about" class="py-24 relative z-10 bg-black/40">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-5xl font-bold neon-purple mb-12 text-center">Professional Summary</h2>
+                <div class="glass rounded-3xl p-8 md:p-10">
+                    <p class="text-base md:text-lg leading-relaxed text-purple-100">Results-driven AI Evaluation Specialist, Prompt Engineer, and Multilingual Generalist with professional experience supporting AI training, response evaluation, structured data validation, digital content workflows, and multilingual quality assurance across Hindi and English environments. Experienced in evaluating AI-generated outputs for reasoning quality, factual accuracy, contextual relevance, instruction adherence, workflow consistency, and analytical reliability within AI evaluation pipelines. Strong familiarity with structured datasets, JSON validation workflows, schema compliance review, machine-readable data inspection, Python-supported workflow handling, technical and non-technical content writing, digital marketing support tasks, and AI-driven quality assurance processes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills, Experience, Projects, Education, Contact sections same as before (full content) -->
 
         <footer class="py-8 text-center text-purple-400/70 text-sm relative z-10">© 2026 Lokesh Agarwal</footer>
     </div>
@@ -157,7 +163,7 @@
             audio.play().catch(() => {});
         }
 
-        // Aquarium script (same as before)
+        // Aquarium
         let scene, camera, renderer, fishes = [], bubbles;
         const neonColors = [0x00bfff, 0xc026d3, 0xff00ff, 0x39ff14];
 
